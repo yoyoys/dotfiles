@@ -1,0 +1,12 @@
+[fetch]
+	prune = true
+[user]
+	name = Yoyo Young
+	mail = yoyoys@livemail.tw
+	email = yoyoys@livemail.tw
+[includeIf "gitdir:~/c-ark"]
+	path = ~/.gitconfig_cark
+[core]
+	editor = code --wait
+[tig]
+	mouse = true
