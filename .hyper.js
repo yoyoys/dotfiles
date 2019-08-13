@@ -7,9 +7,9 @@ module.exports = {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
     updateChannel: 'stable',
-
+    windowSize: [1000, 600],
     // default font size in pixels for all tabs
-    fontSize: 14,
+    fontSize: 13,
 
     // font family with optional fallbacks
     fontFamily: '"DejaVu Sans Mono", "DejaVu Sans Mono for Powerline", "DejaVuSansMono Nerd Font", "文泉驛微米黑", monospace',
@@ -131,8 +131,56 @@ module.exports = {
 
 
     hyperBorder: {   
-      borderWidth: '2px'
+      borderWidth: '4px'
     },
+    
+    summon: {
+      hideDock: true,
+      hideOnBlur: false,
+      hotkey: 'Shift+Super+X',
+    },
+
+    hyperTabs: {
+      border: true,
+      tabIconsColored: true,
+      closeAlign: 'right',
+    },
+
+    opacity: {
+      focus: 0.9,
+      blur: 0.5,
+    },
+    hyperCustomTouchbar: [
+      // if you just need a single button then don't add options array
+      { label: 'clear', command: 'clear', backgroundColor: '#d13232' },
+      { label: 'man', command: 'man ', prompt: true },
+      {
+        label: 'git',
+        options: [
+          { label: 'diff', command: 'git diff' },          
+          { label: 'status', command: 'git status' },  
+          { label: 'log', command: 'git log' },
+          { label: 'add .', command: 'git add .', icon: '/tmp/icons8-add-file-44.png', iconPosition: 'right' },
+          { label: 'clone', command: 'git clone ', prompt: true },
+        ]
+      },
+      {
+        icon: '/tmp/icons8-folder-44.png',
+        options: [
+          { command: 'cd /usr/local/etc/nginx', icon: '/tmp/icons8-database-44.png', backgroundColor: '#000' },
+          { command: 'cd /usr/local/var/log', icon: '/tmp/icons8-binary-file-44.png', backgroundColor: '#000' },
+          { command: 'cd ~/Dropbox/', icon: '/tmp/icons8-dropbox-44.png', backgroundColor: '#000' },
+          { command: 'cd ~/Downloads/', icon: '/tmp/icons8-downloading-updates-44.png', backgroundColor: '#000' }
+        ]
+      },
+      {
+        label: 'vim',
+        options: [
+          { label: 'quit', command: ':q!', esc: true },
+          { label: 'save & quit', command: ':x', esc: true },
+        ]
+      },
+    ]
   },
 
   // a list of plugins to fetch and install from npm
@@ -144,13 +192,14 @@ module.exports = {
   plugins: [
     // 'hyper-ayu',
     'hyper-ayu-mirage',
-    // 'hyper-material-theme',
-    // 'hyper-one-light',
     // "hyperline",
     "hyper-simple-highlight-active-session",
-    // 'hyper-tabs-enhanced',
     'hypercwd',
-    // 'hyperborder'
+//    'hyperterm-summon',
+    'hyperborder',
+    'hyper-tabs-enhanced',
+    'hyper-opacity',
+    'hyper-custom-touchbar',
   ],
 
   // in development, you can create a directory under
@@ -165,3 +214,4 @@ module.exports = {
     // 'window:devtools': 'cmd+alt+o',
   },
 };
+
